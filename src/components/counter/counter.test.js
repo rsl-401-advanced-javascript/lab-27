@@ -6,6 +6,11 @@ import renderer from 'react-test-renderer';
 import { mount, shallow, render } from 'enzyme';
 
 describe('Counter', () => {
+  it('should mount and exist', () => {
+    let counter = mount(<Counter />);
+    expect(counter.find('.up')).toBeDefined();
+  });
+
   it('should update the state', () => {
     let counter = mount(<Counter />);
     let button = counter.find('.up');
