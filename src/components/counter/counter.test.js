@@ -7,12 +7,12 @@ import { mount, shallow, render } from 'enzyme';
 
 describe('Counter', () => {
   it('should mount and exist', () => {
-    let counter = mount(<Counter />);
+    const counter = mount(<Counter />);
     expect(counter.find('.up')).toBeDefined();
   });
 
   it('should update the state', () => {
-    let counter = mount(<Counter />);
+    const counter = mount(<Counter />);
     let button = counter.find('.up');
     let initCount = counter.state('count');
     button.simulate('click');
@@ -21,7 +21,7 @@ describe('Counter', () => {
   });
 
   it('should update the DOM', () => {
-    let counter = mount(<Counter />);
+    const counter = mount(<Counter />);
     let button = counter.find('.up');
     button.simulate('click');
     let count = counter.find('.count');
@@ -29,5 +29,11 @@ describe('Counter', () => {
     button = counter.find('.down');
     button.simulate('click');
     expect(count.text()).toBe('0');
+  });
+
+  it('SNAPSHOT TEST', () => {
+    const counter = renderer.create(<Counter />);
+    const tree = counter.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
