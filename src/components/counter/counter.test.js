@@ -19,4 +19,13 @@ describe('Counter', () => {
     let newCount = counter.state('count');
     expect(newCount).not.toBe(initCount);
   });
+
+  it('should update the DOM', () => {
+    let counter = mount(<Counter />);
+    let button = counter.find('.up');
+    let initCount = counter.find('.counter').text();
+    button.simulate('click');
+    let newCount = counter.find('.counter').text();
+    expect(newCount).not.toBe(initCount);
+  });
 });
