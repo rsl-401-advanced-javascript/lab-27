@@ -1,0 +1,20 @@
+.up, .down {
+  font-size: 2em;
+  color: #33f;
+  font-weight: bold;
+  text-align: center;
+}
+
+.count {
+  font-size: 3em;
+  color: #d00;
+  font-weight: bold;
+}
+
+.counter {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: calc(100vh - 300px);
+}
