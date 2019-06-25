@@ -23,9 +23,11 @@ describe('Counter', () => {
   it('should update the DOM', () => {
     let counter = mount(<Counter />);
     let button = counter.find('.up');
-    let initCount = counter.find('.counter').text();
     button.simulate('click');
-    let newCount = counter.find('.counter').text();
-    expect(newCount).not.toBe(initCount);
+    let count = counter.find('.count');
+    expect(count.text()).toBe('1');
+    button = counter.find('.down');
+    button.simulate('click');
+    expect(count.text()).toBe('0');
   });
 });
